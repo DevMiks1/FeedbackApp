@@ -1,8 +1,11 @@
 <?php 
+require('config.php');
+
 $name = $email = $feedback = "";
 $nameErr = "";
 $emailErr = "";
 $feedbackErr = "";
+
 
 if (isset($_POST["submit"])) {
   if (empty($_POST["name"])) {
@@ -26,8 +29,11 @@ if (isset($_POST["submit"])) {
   if (empty($nameErr) && empty($feedbackErr) && empty($emailErr)) {
     // Process the form data
     require('./create.php');
-  }
+   
 }
+
+  }
+  
 ?>
 
 
@@ -48,7 +54,7 @@ if (isset($_POST["submit"])) {
   <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light mb-4">
       <div class="container">
-        <a class="navbar-brand" href="#">Kodego Bootcamp</a>
+        <a class="navbar-brand" href="<?php echo $homeLink ?>"><?php echo $logoName ?></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -63,15 +69,15 @@ if (isset($_POST["submit"])) {
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/php/index.php ">Home</a>
+              <a class="nav-link" href="<?php echo $homeLink; ?> "><?php echo $homeNavbar ?></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/php/feedback.php"
-                >Feedback</a
+              <a class="nav-link" href="<?php echo $feedbackLink; ?>"
+                ><?php echo $feedbackNavbar ?></a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/php/about.html">About</a>
+              <a class="nav-link" href="<?php echo $aboutLink; ?>"><?php echo $aboutNavbar ?></a>
             </li>
           </ul>
         </div>
@@ -130,7 +136,7 @@ if (isset($_POST["submit"])) {
       </div>
     </main>
 
-    <footer class="text-center mt-5">Copyright &copy; 2023</footer>
+    <footer class="text-center mt-5"><?php echo $footerName?></footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
